@@ -1,0 +1,8 @@
+.nav-element {
+    padding: 10px;
+}
+
+#nav-container {
+    display: flex;
+    justify-content: flex-end;
+}
