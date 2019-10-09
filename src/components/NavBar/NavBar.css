@@ -2,7 +2,7 @@
     padding: 10px;
 }
 
-#nav-container {
+.nav-container {
     display: flex;
     justify-content: flex-end;
 }
