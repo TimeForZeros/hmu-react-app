@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
-    creator: {type: Schema.Types.ObjectId, ref: 'User'},
+    name: String,
     date: Date,
     location: String,
     details: String,
+    creator: {type: Schema.Types.ObjectId, ref: 'User'},
     contributors: [{type: Schema.Types.ObjectId, ref: 'User'}]
 }, {
     timestamp: true,

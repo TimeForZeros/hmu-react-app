@@ -6,6 +6,7 @@ import NavBar from "../components/NavBar/NavBar";
 import userService from  '../utils/userService';
 import SignupPage from "../pages/SignupPage/SignupPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
+import EventPage from '../pages/EventPage/EventPage';
 
 class App extends Component {
   constructor() {
@@ -30,6 +31,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">Hit Me Up!</header>
         <Switch>
+          <Route exact path='/eventadd' render={() =>
+          <EventPage />} />
          <Route exact path="/"  render={() => <NavBar 
          user={this.state.user}
          handleLogout={this.handleLogout}
