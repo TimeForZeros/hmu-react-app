@@ -31,13 +31,8 @@ module.exports = {
 //   return fetch('/api/events/').then(res => res.json());
 // }
 
-// async function index(req, res) {
-//   const event = await Event.find({});
-
-//   res.json(event);
-// }
-function index(req, res) {
-  const event = Event.find({});
+async function index(req, res) {
+  const event = await Event.find({});
 
   res.json(event);
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import userService from '../../utils/userService';
+import userService from '../../utils/userService';
 import eventService from '../../utils/eventService';
 
 class EventForm extends Component {
@@ -10,7 +10,6 @@ class EventForm extends Component {
     date: '',
     location: '',
     details: '',
-    // creator:'',
   };
 
   handleChange = (e) => {

@@ -9,12 +9,10 @@ class MainPage extends Component {
   }
 
   async componentDidMount() {
-    const event = await eventService.index();
-    this.props.handleUpdateEvents(event);
+    const events = await eventService.index();
+    this.props.handleUpdateEvents(events);
   }
-  updateMessage = (msg) => {
-    this.setState({message: msg});
-  }
+
 
   render() {
     const event = this.props.event.map((event, idx) => (

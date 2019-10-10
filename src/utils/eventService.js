@@ -1,5 +1,11 @@
 const BASE_URL = '/api/events/';
 
+export default {
+    create,
+    index,
+}
+
+
 function create(event){
     return fetch (BASE_URL + 'eventadd', {
     method: 'POST',
@@ -18,9 +24,5 @@ function index() {
   }
 
 
-export default {
-    create,
-    index
-}
 
 

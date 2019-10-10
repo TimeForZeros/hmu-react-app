@@ -3,7 +3,7 @@ const router = express.Router();
 const eventsCtrl = require('../../controllers/events');
 
 router.post('/eventadd', eventsCtrl.create);
-router.get('/events', eventsCtrl.index);
+router.get('/', eventsCtrl.index);
 
 // router.use(require('../../config/auth');
 // router.post('/eventadd', checkAuth, eventsCtrl.create);
