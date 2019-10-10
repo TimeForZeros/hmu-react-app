@@ -8,13 +8,6 @@ class EventPage extends Component {
     this.state = {message: ''}
   }
 
-  // async componentDidMount() {
-  //   const event = await eventService.index();
-  //   console.log('mounted');
-  //   this.props.handleUpdateEvents(event);
-  // }
-
-
     
 
 
@@ -24,13 +17,6 @@ class EventPage extends Component {
   }
 
   render() {
-    // const events = this.props.event.map((event) => (
-    //   <tr >
-    //     <td>{event.name}</td>
-    //     <td>{event.date}</td>
-    //     <td>{event.details}</td>
-    //   </tr>
-    // ));
     return (
 
 
@@ -38,7 +24,6 @@ class EventPage extends Component {
       <div className='EventPage'>
         <EventForm {...this.props} updateMessage={this.updateMessage} />
         <p>{this.state.message}</p>
-        <p>{events}</p>
       </div>
     );
   }

@@ -7,9 +7,9 @@ class EventForm extends Component {
 
   state = {
     name: '',
-    // date: '',
-    // location: '',
-    // details: '',
+    date: '',
+    location: '',
+    details: '',
     // creator:'',
   };
 
