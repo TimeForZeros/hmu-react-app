@@ -13,9 +13,14 @@ function create(event){
 });
 }
 
+function index() {
+    return fetch(BASE_URL).then(res => res.json());
+  }
+
 
 export default {
-    create
+    create,
+    index
 }
 
 

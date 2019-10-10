@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const eventsCtrl = require('../../controllers/events');
 
-// router.get('/eventadd', eventsCtrl.create);
+router.post('/eventadd', eventsCtrl.create);
+// router.get('/events', eventsCtrl.index);
 
 // router.use(require('../../config/auth');
-router.post('/eventadd', eventsCtrl.create);
 // router.post('/eventadd', checkAuth, eventsCtrl.create);
 
 // function checkAuth(req, res, next) {

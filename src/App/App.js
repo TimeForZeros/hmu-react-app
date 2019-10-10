@@ -8,13 +8,15 @@ import SignupPage from "../pages/SignupPage/SignupPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import EventPage from '../pages/EventPage/EventPage';
 import eventService from "../utils/eventService";
+import MainPage from '../pages/MainPage/MainPage';
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       user: userService.getUser(),
-      event: ''
+      event: []
     }
   }
 
@@ -31,17 +33,32 @@ class App extends Component {
     this.setState({event: eventService.getEvent()});
   }
 
+  handleUpdateEvents = () => {
+    this.setState({event: eventService.index()});
+  }
+
+
   render() {
     return (
       <div className="App">
         <header className="App-header">Hit Me Up!</header>
         <Switch>
+          <Route exact path='/events' render={({history}) =>
+         <MainPage 
+          event={this.state.event} 
+          history={history}
+          handleUpdateEvents={this.handleUpdateEvents}
+        
+         />
+          } />
           <Route exact path='/eventadd' render={({history}) =>
           <EventPage 
+            event={this.state.event}
             history={history}
             handleCreateEvent={this.handleCreateEvent}
            />} />
          <Route exact path="/"  render={() => <NavBar 
+         event={this.state.event}
          user={this.state.user}
          handleLogout={this.handleLogout}
          />} />
@@ -52,6 +69,7 @@ class App extends Component {
                        history={history}
                        handleSignupOrLogin={this.handleSignupOrLogin} />} />
         </Switch>
+        <p> Test </p>
       </div>
     );
   }

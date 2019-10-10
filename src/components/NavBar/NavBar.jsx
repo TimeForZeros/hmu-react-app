@@ -5,15 +5,14 @@ import "./NavBar.css";
 const NavBar = props => {
   let nav = props.user ? (
     <div className="nav-container">
-      <Link to="/eventadd">Add Event</Link>
-      <Link to="" onClick={props.handleLogout} className="nav-element">
+      <span className="nav-element">WELCOME, {props.user.name}</span>
+      <Link to="/eventadd" className='nav-element'>Add Event</Link>
+      <Link to="" onClick={props.handleLogout} className='nav-element'>
         Log Out
       </Link>
-      <span className="NavBar-welcome">WELCOME, {props.user.name}</span>
     </div>
   ) : (
     <div className="nav-container">
-      <Link to="/eventadd" className='nav-element'>Add Event</Link>
       <Link to="/login" className="nav-element">
         Log In
       </Link>

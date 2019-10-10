@@ -2,6 +2,7 @@ var Event = require('../models/event');
 
 module.exports = {
     create,
+    index,
     // delete,
 };
 
@@ -12,6 +13,34 @@ module.exports = {
 //         res.json({err});
 //     }
 // }
+
+
+// function show(req, res) {
+//   req.body.userId = req.user.id;
+//   event.findById(req.params.id, function(err, event) {
+//     console.log(items);
+//     res.render("items/show", {
+//       items,
+//       user: req.user,
+//       name: req.query.name
+//     });
+//   });
+// }
+
+// function index() {
+//   return fetch('/api/events/').then(res => res.json());
+// }
+
+// async function index(req, res) {
+//   const event = await Event.find({});
+
+//   res.json(event);
+// }
+function index(req, res) {
+  const event = Event.find({});
+
+  res.json(event);
+}
 
 
 function create(req, res) {
