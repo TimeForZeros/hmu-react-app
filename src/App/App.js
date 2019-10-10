@@ -7,6 +7,7 @@ import userService from  '../utils/userService';
 import SignupPage from "../pages/SignupPage/SignupPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import EventPage from '../pages/EventPage/EventPage';
+import eventService from "../utils/eventService";
 
 class App extends Component {
   constructor() {
@@ -26,13 +27,20 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   };
 
+  handleCreateEvent = () => {
+    this.setState({event: eventService.getEvent()});
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">Hit Me Up!</header>
         <Switch>
-          <Route exact path='/eventadd' render={() =>
-          <EventPage />} />
+          <Route exact path='/eventadd' render={({history}) =>
+          <EventPage 
+            history={history}
+            handleCreateEvent={this.handleCreateEvent}
+           />} />
          <Route exact path="/"  render={() => <NavBar 
          user={this.state.user}
          handleLogout={this.handleLogout}

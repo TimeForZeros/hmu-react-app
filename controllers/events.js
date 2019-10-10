@@ -5,13 +5,30 @@ module.exports = {
     // delete,
 };
 
-async function create(req, res) {
+// async function create(req, res) {
+//     try {
+//         await Event.create(req.body);
+//     } catch (err) {
+//         res.json({err});
+//     }
+// }
+
+
+function create(req, res) {
+    const event = new Event(req.body);
     try {
-        await Event.create(req.body);
+      event.save();
     } catch (err) {
-        res.json({err});
+      // Probably a duplicate email
+      res.status(400).json(err);
     }
-}
-
-
-
+  }
+// async function create(req, res) {
+//     const event = new Event(req.body);
+//     try {
+//       await event.save();
+//     } catch (err) {
+//       // Probably a duplicate email
+//       res.status(400).json(err);
+//     }
+//   }

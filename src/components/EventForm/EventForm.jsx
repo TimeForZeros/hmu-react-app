@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import userService from '../../utils/userService';
+// import userService from '../../utils/userService';
+import eventService from '../../utils/eventService';
 
 class EventForm extends Component {
 
   state = {
     name: '',
-    date: '',
-    location: '',
-    details: '',
-    creator:'',
+    // date: '',
+    // location: '',
+    // details: '',
+    // creator:'',
   };
 
   handleChange = (e) => {
@@ -23,20 +24,35 @@ class EventForm extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await userService.signup(this.state);
-      this.props.handleSignupOrLogin();
-      console.log(this.props.user);
-      // Successfully signed up - show GamePage
-       this.props.history.push('/');
+      await eventService.create(this.state);
+      this.props.handleCreate();
+      console.log(this.props.event);
+      this.props.history.push('/');
     } catch (err) {
-      // Invalid user data (probably duplicate email)
       this.props.updateMessage(err.message);
     }
   }
 
+  // handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await userService.signup(this.state);
+  //     this.props.handleSignupOrLogin();
+  //     console.log(this.props.user);
+  //      this.props.history.push('/');
+  //   } catch (err) {
+  //     // Invalid user data (probably duplicate email)
+  //     this.props.updateMessage(err.message);
+  //   }
+  // }
+
+  
   isFormInvalid() {
-    return !(this.state.name && this.state.date && this.state.details);
+    return !(this.state.name);
   }
+  // isFormInvalid() {
+  //   return !(this.state.name && this.state.date && this.state.details);
+  // }
 
   render() {
     return (
