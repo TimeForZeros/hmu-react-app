@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import EventForm from '../../components/EventForm/EventForm';
 import eventService from '../../utils/eventService';
 
-class EventPage extends Component {
+class EventAdd extends Component {
   constructor(props) {
     super(props);
     this.state = {message: ''}
@@ -21,7 +21,7 @@ class EventPage extends Component {
 
 
       
-      <div className='EventPage'>
+      <div className='EventAdd'>
         <EventForm {...this.props} updateMessage={this.updateMessage} />
         <p>{this.state.message}</p>
       </div>
@@ -29,4 +29,4 @@ class EventPage extends Component {
   }
 }
 
-export default EventPage;
+export default EventAdd;

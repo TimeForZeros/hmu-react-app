@@ -2,13 +2,15 @@ import React, { Component } from "react";
 //import logo from '../../logo.svg';
 import "./App.css";
 import { Route, Switch, Redirect } from "react-router-dom";
+import * as eventAPI from '../utils/event-api';
 import NavBar from "../components/NavBar/NavBar";
 import userService from "../utils/userService";
 import SignupPage from "../pages/SignupPage/SignupPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
-import EventPage from "../pages/EventPage/EventPage";
-import eventService from "../utils/eventService";
+import EventAdd from "../pages/EventAdd/EventAdd";
+// import eventService from "../utils/eventService";
 import MainPage from "../pages/MainPage/MainPage";
+import EventsPage from '../pages/EventsPage/EventsPage'
 
 class App extends Component {
   constructor() {
@@ -28,13 +30,45 @@ class App extends Component {
     this.setState({ user: userService.getUser() });
   };
 
+handleCreateEvent = async newEventData => {
+  const newEvent = await eventAPI.create(newEventData);
+  this.setState(state => ({
+    event: [...state.event, newEvent]
+  }), () => this.props.history.push('/'));
+};
+
+handleUpdateEvent = async updateEventData => {
+  const updateEvent = await eventAPI.update(updateEventData);
+  const newEventArray = this.state.event.map(e =>
+    e._id === updateEvent._id ? updateEvent : e
+    );
+    this.setState(
+      {event: newEventArray},
+      () => this.props.history.push('/')
+    );
+};
+
+handleDeleteEvent = async id => {
+  await eventAPI.deleteOne(id);
+  this.setState(state => ({
+    event: state.event.filter(e => e._id !== id)
+  }), () => this.props.history.push('/'));
+};
+
+
+
   // handleCreateEvent = () => {
   //   this.setState({event: eventService.getEvent()});
   // }
 
-  handleUpdateEvents = (event) => {
-    this.setState({event});
-  };
+
+
+
+
+
+  // handleUpdateEvents = (event) => {
+  //   this.setState({event});
+  // };
 
   render() {
     return (
@@ -48,9 +82,9 @@ class App extends Component {
             render={() => (
               userService.getUser() ?
 
-              <MainPage
+              <EventsPage
                 event={this.state.event}
-                handleUpdateEvents={this.handleUpdateEvents}
+                handleDeleteEvent={this.handleDeleteEvent}
               />
               :
               <Redirect to='/login' />
@@ -60,8 +94,7 @@ class App extends Component {
             exact
             path="/eventadd"
             render={({ history }) => (
-              <EventPage
-                event={this.state.event}
+              <EventAdd
                 history={history}
                 handleCreateEvent={this.handleCreateEvent}
               />

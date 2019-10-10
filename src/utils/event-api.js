@@ -45,7 +45,7 @@ export function deleteOne(id) {
 // });
 // }
 
-export default function index() {
+export function index() {
     return fetch(BASE_URL).then(res => res.json());
   }
 
