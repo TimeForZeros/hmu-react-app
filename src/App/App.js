@@ -35,7 +35,8 @@ class App extends Component {
     const newEvent = await eventAPI.create(newEventData);
     this.setState(
       state => ({
-        event: [...state.event, newEvent]
+        event: [...state.event, newEvent],
+        user: this.state.user
       }),
       () => this.props.history.push("/")
     );
@@ -102,6 +103,7 @@ class App extends Component {
             path="/event/add"
             render={({ history }) => (
               <EventAdd
+                user={this.state.user}
                 history={history}
                 handleCreateEvent={this.handleCreateEvent}
               />

@@ -12,6 +12,7 @@ class EventForm extends Component {
     date: '',
     location: '',
     details: '',
+    creator: this.props.user.Schema.Types.ObjectId
   }
   };
 
