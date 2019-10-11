@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
 import eventService from '../../utils/eventService';
+import { arrayExpression } from '@babel/types';
 
 class EventForm extends Component {
 
@@ -12,7 +13,7 @@ class EventForm extends Component {
     date: '',
     location: '',
     details: '',
-    creator: this.props.user.Schema.Types.ObjectId
+    // creator: this.props.user.Schema.Types.ObjectId
   }
   };
 
@@ -90,6 +91,7 @@ handleChange = e => {
           <label>Date</label>
           <input
             className="form-control"
+            type='datetime-local'
             name="date"
             value={this.state.formData.date}
             onChange={this.handleChange}

@@ -1,30 +1,57 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './EventCard.css';
 
 function EventCard({event, handleDeleteEvent}) { 
+  let year = '';
+  let month = '';
+  let day = '';
+  let timeStr='';
+  let eventTime = '';
+  function newDate(event) {
+    let dateArr = event.date.split('-');
+    year = dateArr[0];
+    month = dateArr[1];
+    day = dateArr[2].split('T')[0];
+    timeStr=dateArr[2].split('T')[1];
+    return year, month, day, timeStr;
+  };
+  function getTime(str) {
+    let timeArr = timeStr.split(':');
+    let hour = parseInt(timeArr[0]) - 7;
+    let minute = timeArr[1];
+    if (hour < 0) {
+      hour = hour + 24;
+    } 
+    if (hour >= 12){
+      if (hour == 12){
+      return eventTime = '12:' + minute + ' PM'
+      }
+      else return eventTime = (hour - 12) + ':' + minute + ' PM';
+    }
+    else if (hour == 0){
+      return '12:' + minute + 'AM';
+    }
+    else return eventTime = hour + ':' + minute + ' AM';
+
+  }
+  newDate(event);
+  getTime(timeStr);
   return (
-    <div className='panel panel-default'>
-      <div className="panel-heading">
-        <h3 className='panel-title'>{event.name}</h3>
+    <div className='card-container'>
+      <div className="card-heading">
+        <h3 className='card-title'>{event.name}</h3>
       </div>
-      <div className='panel-body'>
+      <div className='card-body'>
         <dl>
-          <dt>Date</dt>
-          <dd>{event.date}</dd>
-          <dt>Location</dt>
-          <dd>{event.location}</dd>
-          <dt>Details</dt>
+          <dt><strong>Date:</strong> {month}/{day}/{year}</dt>
+          <dt><strong>Time:</strong> {eventTime}</dt>
+          <dt><strong>Location</strong> {event.location}</dt>
+          <dt><strong>Details</strong></dt>
           <dd>{event.details}</dd>
         </dl>
       </div>
       <div className='panel-footer'>
-        {/* 
-          The following is another approach to provide 
-          data to a different route that's different
-          from the Star Wars lab's solution code.
-          The state object can be accessed in the new
-          route via the location.state object
-        */}
         <Link
           className='btn btn-xs btn-warning'
           to={{
