@@ -8,7 +8,6 @@ import userService from "../utils/userService";
 import SignupPage from "../pages/SignupPage/SignupPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import EventAdd from "../pages/EventAdd/EventAdd";
-// import eventService from "../utils/eventService";
 import MainPage from "../pages/MainPage/MainPage";
 import EventsPage from "../pages/EventsPage/EventsPage";
 import EditEventPage from '../pages/EditEventPage/EditEventPage';
@@ -65,14 +64,6 @@ class App extends Component {
     this.setState({event});
   }
 
-  // handleCreateEvent = () => {
-  //   this.setState({event: eventService.getEvent()});
-  // }
-
-  // handleUpdateEvents = (event) => {
-  //   this.setState({event});
-  // };
-
   render() {
     return (
       <div className="App">
@@ -110,17 +101,6 @@ class App extends Component {
               />
             )}
           />
-          {/* <Route
-            exact
-            path="/"
-            render={() => (
-              <NavBar
-                event={this.state.event}
-                user={this.state.user}
-                handleLogout={this.handleLogout}
-              />
-            )}
-          /> */}
           <Route
             exact
             path="/signup"
