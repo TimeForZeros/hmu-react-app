@@ -70,7 +70,7 @@ class EditEventPage extends Component {
             className="btn btn-xs"
             disabled={this.state.invalidForm}
           >
-            SAVE PUPPY
+            Save Event
           </button>&nbsp;&nbsp;
           <Link to='/'>CANCEL</Link>
         </form>
@@ -79,4 +79,4 @@ class EditEventPage extends Component {
   }
 }
 
-export default EditPuppyPage;
+export default EditEventPage;

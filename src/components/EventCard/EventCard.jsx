@@ -28,17 +28,17 @@ function EventCard({event, handleDeleteEvent}) {
         <Link
           className='btn btn-xs btn-warning'
           to={{
-            pathname: '/edit',
+            pathname: '/event/edit',
             state: {event}
           }}
         >
-          EDIT
+          Edit
         </Link>
         <button
           className='btn btn-xs btn-danger margin-left-10'
           onClick={() => handleDeleteEvent(event._id)}
         >
-          DELETE
+          Delete
         </button>
       </div>
     </div>

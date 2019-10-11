@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //import logo from '../../logo.svg';
 import "./App.css";
 import { Route, Switch, Redirect } from "react-router-dom";
-import * as eventAPI from '../utils/event-api';
+import * as eventAPI from "../utils/event-api";
 import NavBar from "../components/NavBar/NavBar";
 import userService from "../utils/userService";
 import SignupPage from "../pages/SignupPage/SignupPage";
@@ -10,7 +10,8 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import EventAdd from "../pages/EventAdd/EventAdd";
 // import eventService from "../utils/eventService";
 import MainPage from "../pages/MainPage/MainPage";
-import EventsPage from '../pages/EventsPage/EventsPage'
+import EventsPage from "../pages/EventsPage/EventsPage";
+import EditEventPage from '../pages/EditEventPage/EditEventPage';
 
 class App extends Component {
   constructor() {
@@ -30,41 +31,42 @@ class App extends Component {
     this.setState({ user: userService.getUser() });
   };
 
-handleCreateEvent = async newEventData => {
-  const newEvent = await eventAPI.create(newEventData);
-  this.setState(state => ({
-    event: [...state.event, newEvent]
-  }), () => this.props.history.push('/'));
-};
-
-handleUpdateEvent = async updateEventData => {
-  const updateEvent = await eventAPI.update(updateEventData);
-  const newEventArray = this.state.event.map(e =>
-    e._id === updateEvent._id ? updateEvent : e
-    );
+  handleCreateEvent = async newEventData => {
+    const newEvent = await eventAPI.create(newEventData);
     this.setState(
-      {event: newEventArray},
-      () => this.props.history.push('/')
+      state => ({
+        event: [...state.event, newEvent]
+      }),
+      () => this.props.history.push("/")
     );
-};
+  };
 
-handleDeleteEvent = async id => {
-  await eventAPI.deleteOne(id);
-  this.setState(state => ({
-    event: state.event.filter(e => e._id !== id)
-  }), () => this.props.history.push('/'));
-};
+  handleUpdateEvent = async updateEventData => {
+    const updateEvent = await eventAPI.update(updateEventData);
+    const newEventArray = this.state.event.map(e =>
+      e._id === updateEvent._id ? updateEvent : e
+    );
+    this.setState({ event: newEventArray }, () => this.props.history.push("/"));
+  };
 
+  handleDeleteEvent = async id => {
+    await eventAPI.deleteOne(id);
+    this.setState(
+      state => ({
+        event: state.event.filter(e => e._id !== id)
+      }),
+      () => this.props.history.push("/")
+    );
+  };
 
+  async componentDidMount() {
+    const event = await eventAPI.getAll();
+    this.setState({event});
+  }
 
   // handleCreateEvent = () => {
   //   this.setState({event: eventService.getEvent()});
   // }
-
-
-
-
-
 
   // handleUpdateEvents = (event) => {
   //   this.setState({event});
@@ -74,25 +76,30 @@ handleDeleteEvent = async id => {
     return (
       <div className="App">
         <header className="App-header">Hit Me Up!</header>
+        <NavBar
+          event={this.state.event}
+          user={this.state.user}
+          handleLogout={this.handleLogout}
+        />
+
         <Switch>
           <Route
             exact
-            path="/events"
-            
-            render={() => (
-              userService.getUser() ?
-
-              <EventsPage
-                event={this.state.event}
-                handleDeleteEvent={this.handleDeleteEvent}
-              />
-              :
-              <Redirect to='/login' />
-            )}
+            path="/event"
+            render={() =>
+              userService.getUser() ? (
+                <EventsPage
+                  event={this.state.event}
+                  handleDeleteEvent={this.handleDeleteEvent}
+                />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
           />
           <Route
             exact
-            path="/eventadd"
+            path="/event/add"
             render={({ history }) => (
               <EventAdd
                 history={history}
@@ -100,7 +107,7 @@ handleDeleteEvent = async id => {
               />
             )}
           />
-          <Route
+          {/* <Route
             exact
             path="/"
             render={() => (
@@ -110,7 +117,7 @@ handleDeleteEvent = async id => {
                 handleLogout={this.handleLogout}
               />
             )}
-          />
+          /> */}
           <Route
             exact
             path="/signup"
@@ -128,6 +135,16 @@ handleDeleteEvent = async id => {
               <LoginPage
                 history={history}
                 handleSignupOrLogin={this.handleSignupOrLogin}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/event/edit"
+            render={({ history, location }) => (
+              <EditEventPage
+                handleUpdateEvent={this.handleUpdateEvent}
+                location={location}
               />
             )}
           />
