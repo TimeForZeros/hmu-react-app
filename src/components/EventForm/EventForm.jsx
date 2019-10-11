@@ -1,38 +1,40 @@
 import React, { Component } from 'react';
 
 class EventForm extends Component {
-
+  
   state = {
     invalidForm: true,
     formData: {
-    name: '',
-    date: '',
-    location: '',
-    details: '',
-    // creator: this.props.user.Schema.Types.ObjectId
-  }
+      name: '',
+      date: '',
+      location: '',
+      details: '',
+      creatorId: this.props.user._id,
+      creatorName: this.props.user.name
+    }
   };
-
-
+  
+  
   formRef = React.createRef();
-
-handleChange = e => {
-  const formData = {...this.state.formData, [e.target.name]: e.target.value};
-  this.setState({
-    formData,
-    invalidForm: !this.formRef.current.checkValidity()
-  });
-};
-
-
+  
+  handleChange = e => {
+    const formData = {...this.state.formData, [e.target.name]: e.target.value};
+    this.setState({
+      formData,
+      invalidForm: !this.formRef.current.checkValidity()
+    });
+  };
+  
+  
   handleSubmit = e => {
     e.preventDefault();
     this.props.handleCreateEvent(this.state.formData);
+    this.props.history.push('/');
   };
-
+  
   render() {
     return (
-
+      
       <>
       <h1>Create Event</h1>
       <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>

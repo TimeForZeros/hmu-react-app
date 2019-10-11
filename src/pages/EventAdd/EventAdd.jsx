@@ -21,7 +21,9 @@ class EventAdd extends Component {
 
       
       <div className='EventAdd'>
-        <EventForm {...this.props} user={this.props.user} updateMessage={this.updateMessage} />
+        <EventForm {...this.props}
+         user={this.props.user} 
+         updateMessage={this.updateMessage} />
         <p>{this.state.message}</p>
       </div>
     );

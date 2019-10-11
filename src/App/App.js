@@ -10,6 +10,7 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import EventAdd from "../pages/EventAdd/EventAdd";
 import EventsPage from "../pages/EventsPage/EventsPage";
 import EditEventPage from '../pages/EditEventPage/EditEventPage';
+import MainPage from '../pages/MainPage/MainPage';
 
 class App extends Component {
   constructor() {
@@ -19,7 +20,7 @@ class App extends Component {
       event: []
     };
   }
-
+ 
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -73,8 +74,19 @@ class App extends Component {
           handleLogout={this.handleLogout}
         />
         </header>
-
+        <main>
         <Switch>
+          <Route exact path='/' render={({history})=>
+                     userService.getUser() ? (
+                      <EventsPage
+                        event={this.state.event}
+                        handleDeleteEvent={this.handleDeleteEvent}
+                      />
+                    ) : (
+                     <div> Please Sign In!</div>
+                    )
+                  }
+       />
           <Route
             exact
             path="/event"
@@ -132,6 +144,7 @@ class App extends Component {
             )}
           />
         </Switch>
+        </main>
       </div>
     );
   }

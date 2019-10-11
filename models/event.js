@@ -6,7 +6,8 @@ const eventSchema = new Schema({
     date: Date,
     location: String,
     details: String,
-    creator: String,
+    creatorId: String,
+    creatorName: String,
     // creator: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     contributors: [{type: Schema.Types.ObjectId, ref: 'User'}]
 }, {
