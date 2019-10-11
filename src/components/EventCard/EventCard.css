@@ -1,0 +1,24 @@
+.card-container {
+    background-color: gray;
+    padding: 10px;
+    width: 25vw;
+    height: 25vh;
+    margin: 10px;
+
+    
+
+}
+
+.card-heading {
+
+}
+
+.card-title {
+
+}
+
+.card-body { 
+    margin-top: -20px;
+    display: flex;
+    text-align: left;
+}

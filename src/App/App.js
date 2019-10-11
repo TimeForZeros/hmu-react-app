@@ -76,12 +76,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">Hit Me Up!</header>
+        <header className="App-header">
         <NavBar
           event={this.state.event}
           user={this.state.user}
           handleLogout={this.handleLogout}
         />
+        </header>
 
         <Switch>
           <Route
