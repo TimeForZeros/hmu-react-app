@@ -146,6 +146,7 @@ class App extends Component {
             path="/event/edit"
             render={({ history, location }) => (
               <EditEventPage
+              histor={history}
                 handleUpdateEvent={this.handleUpdateEvent}
                 location={location}
               />
