@@ -24,12 +24,12 @@ function EventCard({event, handleDeleteEvent}) {
       hour = hour + 24;
     } 
     if (hour >= 12){
-      if (hour == 12){
+      if (hour === 12){
       return eventTime = '12:' + minute + ' PM'
       }
       else return eventTime = (hour - 12) + ':' + minute + ' PM';
     }
-    else if (hour == 0){
+    else if (hour === 0){
       return '12:' + minute + 'AM';
     }
     else return eventTime = hour + ':' + minute + ' AM';

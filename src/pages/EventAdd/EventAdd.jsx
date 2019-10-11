@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import EventForm from '../../components/EventForm/EventForm';
-import eventService from '../../utils/eventService';
 
 class EventAdd extends Component {
   constructor(props) {

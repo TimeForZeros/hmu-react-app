@@ -8,7 +8,6 @@ import userService from "../utils/userService";
 import SignupPage from "../pages/SignupPage/SignupPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import EventAdd from "../pages/EventAdd/EventAdd";
-import MainPage from "../pages/MainPage/MainPage";
 import EventsPage from "../pages/EventsPage/EventsPage";
 import EditEventPage from '../pages/EditEventPage/EditEventPage';
 

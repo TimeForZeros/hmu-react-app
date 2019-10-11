@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import userService from '../../utils/userService';
-import eventService from '../../utils/eventService';
-import { arrayExpression } from '@babel/types';
 
 class EventForm extends Component {
 
