@@ -62,13 +62,13 @@ function EventCard({event, handleDeleteEvent, user}) {
             state: {event}
           }}
         >
-          Edit
+         <button className='header-footer'>Edit</button> 
         </Link>
         <button
           className='btn btn-xs btn-danger margin-left-10'
           onClick={() => handleDeleteEvent(event._id)}
         >
-          Delete
+          <strong>Delete</strong>
         </button>
       </div>
     </div>
