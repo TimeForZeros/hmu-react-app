@@ -10,7 +10,7 @@ function EventCard({event, handleDeleteEvent, user}) {
   let eventTime = '';
   console.log(event.creatorId);
   console.log(user._id);
-  let isUser = event.creatorId === user._id ? true : false;
+  let isUser = event.creatorId === user._id ? false : true;
   function newDate(event) {
     let dateArr = event.date.split('-');
     year = dateArr[0];
