@@ -28,7 +28,7 @@ class EditEventPage extends Component {
         <h1>Edit Event</h1>
         <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Event Name (required)</label>
+            <label>Event Name</label>
             <input
               className="form-control"
               name="name"
@@ -64,6 +64,14 @@ class EditEventPage extends Component {
               value={this.state.formData.details}
               onChange={this.handleChange}
             />
+          <div className='form-group'>
+            <label >Going?</label>
+            <input
+            className='form-control'
+            name='contributors'
+            value={this.state.formData.contributors} 
+            />
+          </div>
           </div>
           <button
             type="submit"
