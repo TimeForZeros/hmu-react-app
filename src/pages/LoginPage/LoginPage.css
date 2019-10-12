@@ -4,4 +4,19 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
+
+}
+
+.form-control {
+
+  font-size: 2em;
+}
+
+button {
+  font-size: 2em;
+}
+
+.header-footer {
+  font-size: 2em;
+  font-weight: bolder;
 }

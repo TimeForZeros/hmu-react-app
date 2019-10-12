@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 //import logo from '../../logo.svg';
 import "./App.css";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, Link } from "react-router-dom";
 import * as eventAPI from "../utils/event-api";
 import NavBar from "../components/NavBar/NavBar";
 import userService from "../utils/userService";
@@ -84,7 +84,11 @@ class App extends Component {
                         handleDeleteEvent={this.handleDeleteEvent}
                       />
                     ) : (
-                     <div> Please Sign In!</div>
+                      <div className='sign-in-container'>
+                     <div className='sign-in-event'>
+                     <Link to='/login'>Please Log In</Link>
+                       </div>
+                     </div>
                     )
                   }
        />

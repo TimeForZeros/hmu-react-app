@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #c2e2dc;
+  height: 100vh;
 }
 
 .App-logo {
@@ -19,4 +21,28 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+
+.sign-in-event {
+  padding: 10px;
+  background-color: #09d3ac;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 50vh;
+  font-size: 50px;
+
+
+}
+
+.sign-in-container {
+  padding: 10vmin;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  line-height: 50vh;
 }
