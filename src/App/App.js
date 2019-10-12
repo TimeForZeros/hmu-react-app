@@ -79,6 +79,7 @@ class App extends Component {
           <Route exact path='/' render={({history})=>
                      userService.getUser() ? (
                       <EventsPage
+                        user={this.state.user}
                         event={this.state.event}
                         handleDeleteEvent={this.handleDeleteEvent}
                       />
@@ -93,6 +94,7 @@ class App extends Component {
             render={() =>
               userService.getUser() ? (
                 <EventsPage
+                  user={this.state.user}
                   event={this.state.event}
                   handleDeleteEvent={this.handleDeleteEvent}
                 />

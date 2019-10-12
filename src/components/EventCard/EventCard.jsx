@@ -2,12 +2,15 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './EventCard.css';
 
-function EventCard({event, handleDeleteEvent}) { 
+function EventCard({event, handleDeleteEvent, user}) { 
   let year = '';
   let month = '';
   let day = '';
   let timeStr='';
   let eventTime = '';
+  console.log(event.creatorId);
+  console.log(user._id);
+  let isUser = event.creatorId === user._id ? true : false;
   function newDate(event) {
     let dateArr = event.date.split('-');
     year = dateArr[0];
@@ -51,7 +54,7 @@ function EventCard({event, handleDeleteEvent}) {
           <dd>{event.details}</dd>
         </dl>
       </div>
-      <div className='panel-footer'>
+      <div hidden={isUser} className='panel-footer'>
         <Link
           className='btn btn-xs btn-warning'
           to={{

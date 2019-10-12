@@ -9,6 +9,7 @@ function EventsPage(props) {
       <div className='events-page'>
         {props.event.map(event =>
           <EventCard
+          user={props.user}
             key={event._id}
             event={event}
             handleDeleteEvent={props.handleDeleteEvent}
