@@ -39,9 +39,9 @@ class EventForm extends Component {
       <h1>Create Event</h1>
       <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
         <div className="form-group">
-          <label>Event Name</label>
           <input
             className="form-control"
+            placeholder='Event Name'
             name="name"
             value={this.state.formData.name}
             onChange={this.handleChange}
@@ -49,9 +49,9 @@ class EventForm extends Component {
           />
         </div>
         <div className="form-group">
-          <label>Date</label>
           <input
             className="form-control"
+            placeholder='Date'
             type='datetime-local'
             name="date"
             value={this.state.formData.date}
@@ -60,18 +60,18 @@ class EventForm extends Component {
           />
         </div>
         <div className="form-group">
-          <label>Location</label>
           <input
             className="form-control"
+            placeholder='Location'
             name="location"
             value={this.state.formData.location}
             onChange={this.handleChange}
           />
         </div>
         <div className="form-group">
-          <label>Details</label>
           <input
             className="form-control"
+            placeholder='Details'
             name="details"
             value={this.state.formData.details}
             onChange={this.handleChange}
