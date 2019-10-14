@@ -47,6 +47,7 @@ function EventCard({event, handleDeleteEvent, user}) {
       </div>
       <div className='card-body'>
         <dl>
+          <dt><strong>Created By: </strong> {event.creatorName}</dt>
           <dt><strong>Date:</strong> {month}/{day}/{year}</dt>
           <dt><strong>Time:</strong> {eventTime}</dt>
           <dt><strong>Location</strong> {event.location}</dt>

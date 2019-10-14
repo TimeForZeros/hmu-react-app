@@ -9,6 +9,7 @@ HMUF was made using the MERN stack (MongoDB, Express, React, and NodeJS).
 ### Wireframe
 
 ### ERD
+![Imgur](https://i.imgur.com/5EWsMeB.png)
 
 ### Features
 Current functions allow users to create, view, update and delete events. Users viewing a post they did not create cannot edit or delete the event.
@@ -20,7 +21,8 @@ Only friends of user will be able to see certain events
 ### Calendar View
 View events on a calendar.
 ### Location-Based View
-Views organized by 
+Views organized by locations nearest to user.
 ### Comment a Functionality
-
+Allows other users to comment on a posted event.
 ### FOMO Board
+A board of places users did not go to and see what they missed out on.
