@@ -21,7 +21,7 @@ function EventCard({event, handleDeleteEvent, user}) {
   };
   function getTime(str) {
     let timeArr = timeStr.split(':');
-    let hour = parseInt(timeArr[0]) - 7;
+    let hour = parseInt(timeArr[0]);
     let minute = timeArr[1];
     if (hour < 0) {
       hour = hour + 24;
