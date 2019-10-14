@@ -1,11 +1,18 @@
 # Hit Me Up Fam
 
-## About
+## Intro
 Hit Me Up Fam (HMUF) is an application in which a user can post of an event they would like to attend with their friends. The details of the event include the date, time, location, and details. Friend (currently anyone) can see these event posts and hit up the post creator to go.
 
+The deployed application can be found at:
+[Hit Me Up, Fam!](https://hitmeupfam.herokuapp.com)
+
 ## Development
+### Technologies Used
 HMUF was made using the MERN stack (MongoDB, Express, React, and NodeJS).
 
+
+## Getting Started
+Trello Link: https://trello.com/b/dbE01ZMl
 ### Wireframe
 
 ### ERD
