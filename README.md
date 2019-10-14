@@ -13,7 +13,6 @@ HMUF was made using the MERN stack (MongoDB, Express, React, and NodeJS).
 
 ## Getting Started
 [Hit Me Up Board at Trello](https://trello.com/b/dbE01ZMl)
-### Wireframe
 
 ### ERD
 ![Imgur](https://i.imgur.com/5EWsMeB.png)
