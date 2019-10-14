@@ -70,8 +70,8 @@ class EditEventPage extends Component {
             className='form-control'
             name='contributors'
             value={this.state.formData.contributors} 
-            /> */}
-          </div>
+            />
+          </div> */}
           </div>
           <button
             type="submit"
