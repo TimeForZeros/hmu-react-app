@@ -64,13 +64,13 @@ class EditEventPage extends Component {
               value={this.state.formData.details}
               onChange={this.handleChange}
             />
-          <div className='form-group'>
+          {/* <div className='form-group'>
             <label >Going?</label>
             <input
             className='form-control'
             name='contributors'
             value={this.state.formData.contributors} 
-            />
+            /> */}
           </div>
           </div>
           <button
